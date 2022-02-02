@@ -19,7 +19,8 @@ async def on_message(message):
     print(message.content)
     
     msg = message.content.split(" ", 5)
-    if msg[0].const or msg[1] or msg[2] or msg[3] or msg[4] in palavra:
+    #essa checagem está errada
+    if msg[0] or msg[1] or msg[2] or msg[3] or msg[4] in palavra:
         messageSend = await message.channel.send("ta no caminho cara")
 
 client.run(configFile["TOKEN"])
