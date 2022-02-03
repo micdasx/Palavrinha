@@ -7,7 +7,7 @@ with open("configuracoes.config", "r") as jsonfile:
 
 client = discord.Client()
 
-#gera palavra aleatória
+# gera palavra aleatória
 ger = gerador.PalavraAleatoria()
 palavras = ger.geraListaDePalavras("palavras.txt")
 palavra = ger.geraPalavra()
@@ -26,12 +26,10 @@ async def on_message(message):
     
     msg = message.content.split(" ", 5)
 
-    # precisa corrigir o if do ta no caminho cara
-
     # palavra não existe
     if message.content not in palavras:
         messageSend = await message.channel.send("palavra nao existe")
-    # acertou alguma das letras
+    # acertou alguma das letras, precisa de correção
     elif msg in palavra.split(' '):
         messageSend = await message.channel.send("ta no caminho cara")
     # acertou a palavra
